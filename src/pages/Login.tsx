@@ -1,11 +1,13 @@
 /* eslint-disable react/jsx-curly-spacing */
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { isValidEmail, isValidPassword } from '../utils/loginValidations';
 
 function Login() {
   const [validButton, setValidButton] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleChangeButton = () => {
     if (isValidEmail(email) && isValidPassword(password)) {
@@ -32,7 +34,7 @@ function Login() {
       </label>
       <label>
         <input
-          type="text"
+          type="password"
           placeholder="senha"
           value={password}
           onChange={({ target }) => setPassword(target.value)}
@@ -41,7 +43,7 @@ function Login() {
       <button
         type="button"
         disabled={validButton}
-
+        onClick={() => navigate('/carteira')}
       >
         Entrar
 
