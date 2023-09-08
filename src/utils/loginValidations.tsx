@@ -1,0 +1,8 @@
+export const isValidEmail = (email: string) => {
+  const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+  return emailRegex.test(email);
+};
+
+export const isValidPassword = (password: string) => {
+  return password.length >= 6;
+};
