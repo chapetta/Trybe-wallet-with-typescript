@@ -25,7 +25,7 @@ export const walletReducer = (
     despesa: number,
     currencies: CurrencieType[],
     error: string,
-    expenses: ExpensesType,
+    expenses: ExpensesType[],
     totalExpenses: number,
   },
 ) => {

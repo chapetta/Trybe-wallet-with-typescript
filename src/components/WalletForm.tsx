@@ -30,18 +30,14 @@ function WalletForm() {
     }));
   };
 
-  // ...
-
   useEffect(() => {
     if (!currencies || currencies.length === 0) {
       dispatch(getCurrenciesApi());
       setLoadingCurrencies(true);
     } else if (loadingCurrencies) {
-      setLoadingCurrencies(false); // Define como false após o carregamento inicial
+      setLoadingCurrencies(false);
     }
   }, [currencies, dispatch, loadingCurrencies]);
-
-  // ...
 
   function calculateTotalExpenses(totalExpenses: ExpensesType[]) {
     if (totalExpenses && totalExpenses.length > 0) {

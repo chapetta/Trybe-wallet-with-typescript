@@ -6,7 +6,6 @@ export const SEARCH_BEGIN = 'SEARCH_BEGIN';
 export const SEND_EXPENSES = 'SEND_EXPENSES';
 export const SEARCH_SUCESSFUL = 'SEARCH_SUCESSFUL';
 export const SEARCH_ERROR = 'SEARCH_ERROR';
-// export const GET_TOTAL = 'GET_TOTAL';
 
 export const saveUserEmail = (email: EmailType) => {
   return {
