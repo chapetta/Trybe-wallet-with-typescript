@@ -12,9 +12,36 @@ export type InfosUserType = {
   despesa: DespesaType
 };
 
+export type CurrencieType = {
+  code: string,
+  name: string,
+  ask: string;
+};
+
+export type ExpensesType = {
+  id: number;
+  value: number;
+  description: string;
+  currency: string;
+  method: string;
+  tag: string;
+  exchangeRates: {
+    [currencyCode: string]: {
+      code: string;
+      name: string;
+      ask: string;
+    }
+  }
+};
+
 export type InfosState = {
   email: EmailType | null,
-  despesa: DespesaType | 0
+  despesa: number,
+  currencies: CurrencieType[] | null,
+  isLoading: boolean,
+  error: string | null,
+  expenses: ExpensesType[] | null,
+  totalExpenses: number
 };
 
 export type Dispatch = ThunkDispatch<InfosUserType, null, AnyAction>;
