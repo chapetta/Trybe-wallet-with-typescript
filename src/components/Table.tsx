@@ -1,9 +1,18 @@
 /* eslint-disable react/jsx-curly-spacing */
-import { useSelector } from 'react-redux';
-import { InfosState } from '../types';
+import { useDispatch, useSelector } from 'react-redux';
+import { Dispatch, InfosState } from '../types';
+import { sendExpenses } from '../redux/actions';
 
 function Table() {
   const { expenses } = useSelector((state: InfosState) => state);
+  const dispatch: Dispatch = useDispatch();
+
+  const handleDeleteButton = (expenseID: number) => {
+    const newExpenses = expenses?.filter((item) => item.id !== expenseID);
+    if (newExpenses) {
+      dispatch(sendExpenses(newExpenses));
+    }
+  };
 
   if (expenses) {
     return (
@@ -38,7 +47,12 @@ function Table() {
               <td>Real</td>
               <td>
                 <button>Editar</button>
-                <button>Excluir</button>
+                <button
+                  onClick={() => handleDeleteButton(expense.id)}
+                >
+                  Excluir
+
+                </button>
               </td>
             </tr>
           ))}
